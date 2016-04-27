@@ -13,7 +13,7 @@ Enter text here: <input type="text" id="theList" onkeyup="filter(this)" />
 
 <p>Unordered List</p>
 
-<ul style="list-style-type:square" id="theList">
+<ul  id="theList">
 	<li>Caleb</li>
 	<li>Elijah</li>
 	<li>Kayla</li>
@@ -25,11 +25,10 @@ Enter text here: <input type="text" id="theList" onkeyup="filter(this)" />
 <script>
 	
 function filter(element) {
-	var value = $(element).val();
-
+	var value = $(element).val().toLowerCase();
 
 	$("#theList > li").each(function(){
-		if ($(this).text().search(value) > -1) {
+		if ($(this).text().toLowerCase().match(value)) {
 			$(this).show();
 		}
 		else {
